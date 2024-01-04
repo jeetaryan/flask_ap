@@ -1,0 +1,55 @@
+<!--calling base.html-->
+{%extends 'base.html'%}
+<!--calling title-->
+{% block title%}Login{% endblock %}
+
+<!--calling navigation-->
+{% block nav %}{% include 'navigate.html' %}{% endblock%}
+
+
+<!--main body-->
+{% block body %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/login.css') }}">
+
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-lg-5 col-md-6 offset-lg-3 offset-md-3">
+            <form method="post" class="row g-3 needs-validation" novalidate>
+                <div class="col-md-12">
+                    <label for="email" class="form-label">First name</label>
+                    <input type="email" class="form-control" id="email" placeholder="enter valid username..." required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="password" class="form-label">Last name</label>
+                    <input type="password" class="form-control" id="password" placeholder="enter password..." required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <button class="btn btn-primary" type="button" id="btnSave1">Sign in</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+<!--js block-->
+{% block js %}
+{% include 'base_js.html' %}
+<!--<script src="{{url_for('static', filename='js/login.js')}}"></script>-->
+<script>
+    var x = new crudOperation();
+    x.init();
+
+</script>
+{% endblock %}
